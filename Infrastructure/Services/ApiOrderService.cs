@@ -36,12 +36,12 @@ public class ApiOrderService : IApiOrderService
                     OrderId = Guid.Parse($"{apiOrder.id.ToString().PadLeft(32, '0').Substring(0, 32)}"),
                     CustomerName = apiOrder.title,
                     OrderDate = DateTime.Now,
-                    Status = "New"
+                    Status = "New status"
                 }).ToList() ?? new List<Order>();
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while fetching orders from the external API.");
+            _logger.LogError(ex, "An error occurred while fetching orders from the external API!");
             return new List<Order>();
         }
     }
